@@ -1,27 +1,28 @@
 import React from 'react'
-import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, ZoomControl } from "react-leaflet";
+import MarkerComponent from './MarkerComponent';
 
-
-const Map = () => {
-    const defaultPosition = [19.285789, 72.869247]; 
+const Map = (props) => {
+    // const map = useMap()
+    const position = [props.lat, props.long];
+    console.log("defaultPosition ===>" + position)
 
     return (
-        <div className="map__container">
             <MapContainer
-                center={defaultPosition}
-                zoom={13}
+                center={position}
+                zoom={position ? 2 : 8}
+                minZoom={1}
                 style={{ width: '100%', height: '65vh', zIndex: '-1', position: 'absolute', top: '35vh' }}
+                
             >
-            <Marker
-            position={defaultPosition}
-          >
-          </Marker>
+                <MarkerComponent position={position}/>
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
+                <ZoomControl position="bottomright" />
             </MapContainer>
-        </div>)
+        )
 }
 
 export default Map
