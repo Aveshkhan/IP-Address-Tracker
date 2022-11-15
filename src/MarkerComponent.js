@@ -10,7 +10,7 @@ export default function MarkerComponent(props) {
                 position={props.position}
                 eventHandlers={{
                     click: (e) => {
-                        map.flyTo(e.latlng, 12);
+                        map.flyTo(e.latlng, 14);
                         console.log("found it on click")
                     },
                     

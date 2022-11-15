@@ -17,4 +17,39 @@ center{
 
 .fs-7{
   font-size: 0.8rem;
+  letter-spacing: 1.5px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .details{
+    text-align: center;
+  }
+
+  .detail{
+    margin-bottom: 5px;
+    border-right: 0px !important;
+  }
+
+  .header{
+    margin-top: 1.8rem !important;
+  }
+
+  .fs-4{
+    font-size: 1rem !important;
+    font-weight: bold;
+  }
+
+  .fs-7{
+    font-size: .65rem;
+  }
+
+  .card{
+    padding: 0.9rem !important;
+  }
+
+  .ipInput{
+    padding: 0 !important;
+  }
 }
