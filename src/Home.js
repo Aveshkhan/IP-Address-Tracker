@@ -45,7 +45,7 @@ const Home = () => {
                         <div className="col-10 col-sm-10 col-lg-6 col-xs-10 col-md-6 ipInput">
                             <h2 className='text-center text-light fw-bold mb-4'>IP Address Tracker</h2>
                             <div className="input-group mb-3">
-                                <input ref={IpAddress} type="text" className="form-control" placeholder="Search for any IP address or domain" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                                <input ref={IpAddress} type="text" className="form-control" placeholder="Search for any public IP address" aria-label="Recipient's username" aria-describedby="button-addon2" />
                                 <button onClick={getCurrentLocationByIp} className="btn btn-dark center" type="button" id="button-addon2"><img className='mb-1' src={searchArrow} alt="search" /></button>
                             </div>
                         </div>
