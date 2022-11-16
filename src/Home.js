@@ -4,8 +4,9 @@ import Map from './Map';
 
 import searchArrow from "./assets/images/icon-arrow.svg"
 import { useRef, useState } from 'react';
-import { useMap } from 'react-leaflet';
 const Home = () => {
+
+    const [errorMsg, setErrorMsg] = useState("")
 
     const [latitude, setLatitude] = useState("")
     const [longitude, setLongitude] = useState("")
@@ -34,6 +35,14 @@ const Home = () => {
             setTimeZone(response.data.time_zone.offset)
             setIsp(response.data.isp)
             console.log(ip, location, timeZone, isp)
+            if (response) {
+                setErrorMsg("")
+            }
+        }).catch((error) => {
+            console.log("Error  ====>" + error)
+            if (error) {
+                setErrorMsg(<p className='text-warning errorMsg fw-bold px-1'>Sorry!! Not Found.</p>)
+            }
         })
     }
 
@@ -48,6 +57,7 @@ const Home = () => {
                                 <input ref={IpAddress} type="text" className="form-control" placeholder="Search for any public IP address" aria-label="Recipient's username" aria-describedby="button-addon2" />
                                 <button onClick={getCurrentLocationByIp} className="btn btn-dark center" type="button" id="button-addon2"><img className='mb-1' src={searchArrow} alt="search" /></button>
                             </div>
+                            {errorMsg}
                         </div>
                         <div className="card p-4 col-10 col-sm-10 col-lg-8 col-xs-10 col-md-8">
                             <div className="row details">
